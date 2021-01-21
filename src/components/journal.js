@@ -2,21 +2,21 @@ import React from 'react';
 
 const journal = () => {
     return (
-        <footer className="footer bg-dark">
+       
             <div className="container text-center">
-                <span className="text-muted">@2020 Built by Alex Bustillos (during COVID)</span>
-                <div class="entry">
+               <div class="jentry">
                 <form class="entry">
-                    <label for="date">Date</label>
-                    <input type="text" id="date" name="date"/>
                     <label for="stime">start time</label>
                     <input type="text" id="stime" name="stime"/>
                     <label for="etime">end time</label>
                     <input type="text" id="etime" name="etime"/>
+                    <label for="Mentry">Entry</label>
+                    <textarea id="Mentry" name="Mentry" rows="4" cols="50"></textarea>
+
                 </form>
-                </div>
+                </div>  
             </div>
-        </footer>
+        
     )
 }
 
