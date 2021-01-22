@@ -13,6 +13,7 @@ import Profile from './components/Profile';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import About from './components/About';
+import journal from'./components/journal';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -64,6 +65,7 @@ function App() {
             path='/login' 
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />
           <Route path='/about' component={ About } />
+          <Route path='/journal' component={journal}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
           <Route exact path="/" component={ Welcome }/>
         </Switch>
