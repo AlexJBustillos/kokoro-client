@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-// const REACT_APP_SERVER_URL = process.env.REACT_APPP_SERVER_URL;
-import keys from '../utils/credentials';
-const { REACT_APP_SERVER_URL } = keys
+const REACT_APP_SERVER_URL = process.env.REACT_APPP_SERVER_URL;
+// import keys from '../utils/credentials';
+// const { REACT_APP_SERVER_URL } = keys
 
 const Signup = () => {
     const [name, setName] = useState('');
@@ -47,7 +47,7 @@ const Signup = () => {
     }
 
     if (redirect) return <Redirect to='/login' />
-    console.log(REACT_APP_SERVER_URL);
+    // console.log(REACT_APP_SERVER_URL);
     return (
         <div className="row mt-4">
             <div className="col-md-7 offset-md-3">
