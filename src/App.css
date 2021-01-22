@@ -4,6 +4,7 @@ html {
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
+  background-color: goldenrod;
 }
 .footer {
   position: absolute;
@@ -17,9 +18,15 @@ body {
   text-align: center;
   width: 100%;
   clear: both;
-  color: goldenrod;
+  color: yellow;
+  background-color:orangered;
+  margin-bottom: 50px;
 }
 
 .entry{
 
+}
+
+.journal{
+  background-color: black;
 }

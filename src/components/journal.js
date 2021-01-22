@@ -2,8 +2,9 @@ import React from 'react';
 
 const journal = () => {
     return (
-       
-            <div className="container text-center">
+        
+            <div class="journal" className="container text-center">
+               
                <div class="jentry">
                 <form class="entry">
                     <label for="stime">start time</label>
@@ -11,10 +12,11 @@ const journal = () => {
                     <label for="etime">end time</label>
                     <input type="text" id="etime" name="etime"/>
                     <label for="Mentry">Entry</label>
-                    <textarea id="Mentry" name="Mentry" rows="4" cols="50"></textarea>
+                    <textarea class="Mentry" name="Mentry" rows="4" cols="50"></textarea>
 
                 </form>
                 </div>  
+                
             </div>
         
     )
