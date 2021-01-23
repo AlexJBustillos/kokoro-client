@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const journal = () => {
+const Journal = () => {
     return (
         
-            <div className="journal" className="container text-center">
+            <div className="container text-center">
                
                <div className="jentry">
                 <form className="entry">
@@ -23,4 +23,4 @@ const journal = () => {
     )
 }
 
-export default journal;
+export default Journal;

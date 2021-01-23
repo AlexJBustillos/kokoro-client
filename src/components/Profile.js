@@ -39,7 +39,7 @@ const Profile = (props) => {
             console.log(error);
         })
     }
-    if (redirect) return <Redirect to='/profile/details' />
+    if (redirect) return <Redirect to='/details' />
     const userData = props.user ? 
     (<div>
         <h1>Profile</h1>
