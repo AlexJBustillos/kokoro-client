@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
+      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} user={currentUser}/>
       <div className="container mt-5">
         <Switch>
           <Route path='/signup' component={Signup} />
@@ -69,7 +69,7 @@ function App() {
           <Route path='/about' component={ About } />
           <Route path='/journal' component={Journal}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
-          <PrivateRoute path="/profile/details" component={ ProfileDetails } user={currentUser}/>
+          <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
           <Route exact path="/" component={ Welcome }/>
         </Switch>
       </div>
