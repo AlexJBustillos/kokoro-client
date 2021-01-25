@@ -1,13 +1,11 @@
 // Imports
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
-import { useAlert } from 'react-alert'
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
-// import keys from '../utils/credentials';
-// const { REACT_APP_SERVER_URL } = keys
+
 
 const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -38,11 +36,11 @@ const Login = (props) => {
             props.nowCurrentUser(decoded);
         })
         .catch(error => {
-            alert.show('Incorrect Email and/or password')
+            console.log(error);
         })
     }
 
-    if (props.user) return <Redirect to='/profile' />
+    if (props.user) return <Redirect to='/details' />
 
     return (
         <div className="row mt-4">

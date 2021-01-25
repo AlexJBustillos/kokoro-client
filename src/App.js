@@ -1,7 +1,6 @@
 // Imports
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-// import { useAlert } from 'react-alert'
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken'
 // CSS
@@ -29,6 +28,7 @@ function App() {
   // Set state values here
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+  
 
   useEffect(() => {
     let token;
