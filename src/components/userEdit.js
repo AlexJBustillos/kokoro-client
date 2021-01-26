@@ -1,6 +1,6 @@
 import React from "react"
 
-const userEdit = () =>{
+const UserEdit = () =>{
     return(
         <div>
             <form>
@@ -21,4 +21,4 @@ const userEdit = () =>{
 
 
 
-export default userEdit;
+export default UserEdit;

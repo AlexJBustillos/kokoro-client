@@ -17,7 +17,7 @@ import About from './components/About';
 import Journal from'./components/Journal';
 import JournalView from './components/JournalView';
 import JournalEdit from './components/JournalEdit';
-import userEdit from './components/userEdit';
+import UserEdit from './components/UserEdit';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -75,7 +75,7 @@ function App() {
           <PrivateRoute path='/journalEdit/:id' component={JournalEdit} user={currentUser}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
           <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
-          <PrivateRoute path="/Edit" component={userEdit} user={currentUser}/>
+          <PrivateRoute path="/Edit" component={UserEdit} user={currentUser}/>
           <Route exact path="/" component={ Welcome }/>
         </Switch>
       </div>
