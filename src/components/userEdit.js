@@ -13,6 +13,7 @@ const userEdit = () =>{
                 <label for="medType">meditation interests</label>
                 <input type="text" id="medType"></input>
             </form>
+            <button>delete profile</button>
         </div>
     )
 }
