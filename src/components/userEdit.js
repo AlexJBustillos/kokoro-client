@@ -4,6 +4,7 @@ import {Redirect} from "react-router-dom"
 
 
 const UserEdit = (props) =>{
+    console.log(props)
     const [newEmail, setNewEmail] = useState('')
     const [newName, setNewName] = useState('')
     const [imageUrl, setImageUrl] = useState('')
@@ -20,7 +21,7 @@ const UserEdit = (props) =>{
             method: 'POST',
             body: formData,
         };
-        return fetch('https://api.cloudinary.com/v1_1/ashton223/image/upload', options)
+        return fetch('https://api.cloudinary.com/v1_1/alexbustillos/image/upload', options)
         .then(res => res.json())
         .then(res => {
             const userID = props.user.id
@@ -29,7 +30,7 @@ const UserEdit = (props) =>{
             const avatar = res.secure_url
             const userData = { email, name, avatar, userID }
             console.log(userData);
-            axios.put(backendURL + "/users/" + userID, userData)
+            axios.put(backendURL + "/api/users/" + userID, userData)
             .then(res =>{
                 setRedirect(true)
             })
@@ -57,10 +58,10 @@ const UserEdit = (props) =>{
     return(
         <div>
                  <form>
-                <p className="old-email">CURRENT EMAIL:  {props.user.email.toUpperCase()}</p>
+                <p className="old-email">CURRENT EMAIL:  {props.user.email}</p>
                 <label/>
                 <input type="text" name="email" id="email" onChange={handleEmail} />
-                <p className="old-email">CURRENT NAME:  {props.user.name.toUpperCase()}</p>
+                <p className="old-email">CURRENT NAME:  {props.user.name}</p>
                 <label/>
                 <input className="new-email-box" type="text" name="name" id="name" onChange={handleName} />
                 <section className="left-side">
