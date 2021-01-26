@@ -15,10 +15,10 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import About from './components/About';
 import Journal from'./components/Journal';
+import UserEdit from './components/UserEdit';
 import JournalView from './components/JournalView';
 import JournalEdit from './components/JournalEdit';
 import UserEdit from './components/UserEdit';
-
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
