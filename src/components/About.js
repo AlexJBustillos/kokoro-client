@@ -5,10 +5,7 @@ const About = () => {
         <div>
             <h1> About </h1>
             <p>This is about us...</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Tempore dolorum excepturi, pariatur dolore fuga perferendis 
-                mollitia deserunt a voluptas assumenda! Consequatur beatae qui 
-                dolorem tempora possimus accusantium, fugit eius quidem?
+            <p>kokoro is an app for people both experienced in meditation and newcomers alike where you can track your progress and really engross yourself into the meditation mindset. Here you can journal your experiences and track your progress so you can see your own development from novice to spiritual guru.  
             </p>
             
         </div>
