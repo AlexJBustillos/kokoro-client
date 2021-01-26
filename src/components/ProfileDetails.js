@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ProfileDetails = (props) => {
-    console.log(props);
     const backendURL = process.env.REACT_APP_SERVER_URL;
     const [profile, setProfile] = useState('')
     const {id} = props.user

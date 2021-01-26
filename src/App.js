@@ -15,6 +15,8 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import About from './components/About';
 import Journal from'./components/Journal';
+import JournalView from './components/JournalView';
+import JournalEdit from './components/JournalEdit';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -67,7 +69,9 @@ function App() {
             path='/login' 
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />
           <Route path='/about' component={ About } />
-          <Route path='/journal' component={Journal}/>
+          <PrivateRoute path='/journal' component={Journal} user={currentUser}/>
+          <PrivateRoute path='/journalView' component={JournalView} user={currentUser} />
+          <PrivateRoute path='/journalEdit/:id' component={JournalEdit} user={currentUser}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
           <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
           <Route exact path="/" component={ Welcome }/>
