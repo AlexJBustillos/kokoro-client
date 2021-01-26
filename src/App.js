@@ -74,7 +74,7 @@ function App() {
           <PrivateRoute path='/journalEdit/:id' component={JournalEdit} user={currentUser}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
           <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
-          <PrivateRoute path="/Edit" component={UserEdit} user={currentUser}/>
+          <PrivateRoute path="/Edit" component={UserEdit} user={currentUser} handleLogout={handleLogout}/>
           <Route exact path="/" component={ Welcome }/>
         </Switch>
       </div>
