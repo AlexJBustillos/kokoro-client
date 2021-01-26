@@ -2,15 +2,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-const REACT_APP_SERVER_URL = process.env.REACT_APPP_SERVER_URL;
-// import keys from '../utils/credentials';
-// const { REACT_APP_SERVER_URL } = keys
+const backendURL = process.env.REACT_APP_SERVER_URL;
 
 const Signup = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [status, setStatus] = useState('');
+    const [meditation, setMeditation] = useState('');
+    const [experience, setExperience] = useState('');
+    const [bio, setBio] = useState('');
     const [redirect, setRedirect] = useState(false);
 
     const handleName = (e) => {
@@ -29,15 +31,37 @@ const Signup = () => {
         setConfirmPassword(e.target.value);
     }
 
+    const handleStatus = (e) => {
+        setStatus(e.target.value);
+    }
+    const handleMeditation = (e) => {
+        setMeditation(e.target.value);
+    }
+    const handleExperience = (e) => {
+        setExperience(e.target.value);
+    }
+    const handleBio = (e) => {
+        setBio(e.target.value);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (password === confirmPassword) {
             const newUser = { name, email, password };
 
-            axios.post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
+            axios.post(backendURL + `/api/users/register`, newUser)
             .then(response => {
-                console.log(response);
+                const id = response.data._id
+                const profileData = { id, status, meditation, experience, bio }
+                axios.post(backendURL + "/api/profiles/" + id, profileData)
+                .then(response => {
+                    console.log(response);
+                    
+                })
+                .catch(error => {
+                    console.log(error);
+                })
                 setRedirect(true);
             })
             .catch(error => {
@@ -47,7 +71,6 @@ const Signup = () => {
     }
 
     if (redirect) return <Redirect to='/login' />
-    // console.log(REACT_APP_SERVER_URL);
     return (
         <div className="row mt-4">
             <div className="col-md-7 offset-md-3">
@@ -69,6 +92,47 @@ const Signup = () => {
                         <div className="form-group">
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} className="form-control" />
+                        </div>
+                        <h2>Create Profile</h2>
+                        <div className="form-group">
+                        <label htmlFor="status">Status: Begginer - Intermediate - Expert</label>
+                        <input 
+                            type="text" 
+                            name="status" 
+                            value={status}
+                            onChange={handleStatus}
+                            className="form-control"
+                        />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="meditation">Types of Meditation interested in</label>
+                            <input 
+                                type="text" 
+                                name="meditation"
+                                value={meditation}
+                                onChange={handleMeditation}
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="experience">Experience with Meditation</label>
+                            <input 
+                                type="text"
+                                name="experience"
+                                value={experience}
+                                onChange={handleExperience}
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="bio">Tell us a bit about yourself</label>
+                            <input 
+                                type="text"
+                                name="bio"
+                                value={bio}
+                                onChange={handleBio}
+                                className="form-control"
+                            />
                         </div>
                         <button type="submit" className="btn bt-primary float-right">Submit</button>
                     </form>

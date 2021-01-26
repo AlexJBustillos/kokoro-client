@@ -1,7 +1,6 @@
 // Imports
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-// import { useAlert } from 'react-alert'
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken'
 // CSS
@@ -16,7 +15,10 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import About from './components/About';
 import Journal from'./components/Journal';
-import userEdit from './components/UserEdit';
+import UserEdit from './components/UserEdit';
+import JournalView from './components/JournalView';
+import JournalEdit from './components/JournalEdit';
+import UserEdit from './components/UserEdit';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -29,6 +31,7 @@ function App() {
   // Set state values here
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+  
 
   useEffect(() => {
     let token;
@@ -67,10 +70,12 @@ function App() {
             path='/login' 
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />
           <Route path='/about' component={ About } />
-          <Route path='/journal' component={Journal}/>
+          <PrivateRoute path='/journal' component={Journal} user={currentUser}/>
+          <PrivateRoute path='/journalView' component={JournalView} user={currentUser} />
+          <PrivateRoute path='/journalEdit/:id' component={JournalEdit} user={currentUser}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
           <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
-          <PrivateRoute path="/Edit" component={userEdit} user={currentUser}/>
+          <PrivateRoute path="/Edit" component={UserEdit} user={currentUser}/>
           <Route exact path="/" component={ Welcome }/>
         </Switch>
       </div>

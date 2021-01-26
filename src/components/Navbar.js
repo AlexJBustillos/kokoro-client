@@ -6,15 +6,12 @@ const Navbar = (props) => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
             <div className="container">
                 <Link className="navbar-brand" to="/">Kokoro</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-label="Toggle Navigation">
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarsExample07">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/">Home</NavLink>
-                        </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" exact to="/about">About</NavLink>
                         </li>
@@ -24,6 +21,9 @@ const Navbar = (props) => {
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/details">{props.user.name}</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" exact to="/journalView">Journals</NavLink>
                             </li>
                             <li className="nav-item">
                                 <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>

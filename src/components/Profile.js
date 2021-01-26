@@ -4,8 +4,9 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 
+
 const Profile = (props) => {
-    // console.log(props);
+    console.log(props);
     const backendUrl = process.env.REACT_APP_SERVER_URL;
     const { id, name, email } = props.user
     const [status, setStatus] = useState('');
@@ -30,7 +31,7 @@ const Profile = (props) => {
     const handleSubmit = (e) => {
         const profileData = { id, name, email, status, meditation, experience, bio}
         e.preventDefault();
-        axios.post(backendUrl + "/api/profiles/" + id, profileData)
+        axios.put(backendUrl + "/api/profiles/" + id, profileData)
         .then(response => {
             console.log(response);
             setRedirect(true)
@@ -42,10 +43,7 @@ const Profile = (props) => {
     if (redirect) return <Redirect to='/details' />
     const userData = props.user ? 
     (<div>
-        <h1>Profile</h1>
-        <p><strong>Name: </strong> {props.user.name}</p>
-        <p><strong>Email: </strong> {props.user.email}</p>
-        <p><strong>Id: </strong> {props.user.id}</p>
+        <h1>Edit Your Profile Below</h1>
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {
@@ -60,7 +58,6 @@ const Profile = (props) => {
         <div>
             { props.user ? userData : errorDiv() }
             <div>
-                <h3>Please Set Up your Profile Below</h3>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="status">Status: Begginer - Intermediate - Expert</label>
@@ -107,6 +104,7 @@ const Profile = (props) => {
 
             </div>
             <Link to="/journal">Journal</Link>
+
         </div>
     );
 }
