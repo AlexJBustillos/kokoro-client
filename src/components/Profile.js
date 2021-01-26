@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 
+
 const Profile = (props) => {
     console.log(props);
     const backendUrl = process.env.REACT_APP_SERVER_URL;
@@ -103,6 +104,7 @@ const Profile = (props) => {
 
             </div>
             <Link to="/journal">Journal</Link>
+
         </div>
     );
 }

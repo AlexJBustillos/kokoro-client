@@ -57,7 +57,7 @@ const Signup = () => {
                 axios.post(backendURL + "/api/profiles/" + id, profileData)
                 .then(response => {
                     console.log(response);
-
+                    
                 })
                 .catch(error => {
                     console.log(error);
@@ -103,37 +103,37 @@ const Signup = () => {
                             onChange={handleStatus}
                             className="form-control"
                         />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="meditation">Types of Meditation interested in</label>
-                        <input 
-                            type="text" 
-                            name="meditation"
-                            value={meditation}
-                            onChange={handleMeditation}
-                            className="form-control"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="experience">Experience with Meditation</label>
-                        <input 
-                            type="text"
-                            name="experience"
-                            value={experience}
-                            onChange={handleExperience}
-                            className="form-control"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="bio">Tell us a bit about yourself</label>
-                        <input 
-                            type="text"
-                            name="bio"
-                            value={bio}
-                            onChange={handleBio}
-                            className="form-control"
-                        />
-                    </div>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="meditation">Types of Meditation interested in</label>
+                            <input 
+                                type="text" 
+                                name="meditation"
+                                value={meditation}
+                                onChange={handleMeditation}
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="experience">Experience with Meditation</label>
+                            <input 
+                                type="text"
+                                name="experience"
+                                value={experience}
+                                onChange={handleExperience}
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="bio">Tell us a bit about yourself</label>
+                            <input 
+                                type="text"
+                                name="bio"
+                                value={bio}
+                                onChange={handleBio}
+                                className="form-control"
+                            />
+                        </div>
                         <button type="submit" className="btn bt-primary float-right">Submit</button>
                     </form>
                 </div>
