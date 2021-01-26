@@ -11,7 +11,8 @@ const UserEdit = (props) =>{
     const backendURL = process.env.REACT_APP_SERVER_URL
     const dataChange = (e) => {
         console.log('----Changing Email----');
-        e.preventDefault();const { files } = document.querySelector('input[type="file"]')
+        e.preventDefault();
+        const { files } = document.querySelector('input[type="file"]')
         const formData = new FormData();
         formData.append('file', files[0]);
         formData.append('upload_preset', 'ivgbzzgb');
@@ -53,6 +54,15 @@ const UserEdit = (props) =>{
         e.preventDefault();
         setNewEmail(e.target.value)
     }
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        const id = props.user.id
+        props.handleLogout()
+        axios.delete(backendURL + "/api/users/" + id)
+
+    }
+
     return(
         <div>
             <form>
@@ -74,23 +84,7 @@ const UserEdit = (props) =>{
                     <h4 className="disclaimer">Changes will take effect the next time you log in.</h4>
                 </div>
             </form>
-            {/* <form>
-                <p className="old-email">CURRENT EMAIL:  {props.user.email.toUpperCase()}</p>
-                <label/>
-                <input type="text" name="email" id="email" onChange={handleEmail} />
-                <p className="old-email">CURRENT NAME:  {props.user.name.toUpperCase()}</p>
-                <label/>
-                <input className="new-email-box" type="text" name="name" id="name" onChange={handleName} />
-                <section className="left-side">
-                    <div className="form-group">
-                        <p className="old-email2">CHANGE YOUR PROFILE IMAGE:</p>
-                        <input className="btn-image1" onChange={handleImage} type="file"/>
-                    </div>
-                    <input className="btn-image2" type="submit" value="Update Profile"  onClick={dataChange}/>
-                </section>
-            </form> */}
-  
-            <button>delete profile</button>
+            <button className="btn btn-danger" onClick={handleDelete}>delete profile</button>
         </div>
     )
     
