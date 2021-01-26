@@ -6,7 +6,18 @@ const JournalView = (props) => {
     const backendURL = process.env.REACT_APP_SERVER_URL;
     const [journal, setJournal] = useState('');
     const [journalArray, setJournalArray] = useState([]);
+    const [redirect, setRedirect] = useState(false)
     const {id} = props.user;
+    
+    const handleDelete = (e) => {
+        e.preventDefault();
+        axios.delete(backendURL + "/api/journals/" + e.target.value)
+        .then(response => {
+            console.log(response.data)
+            setRedirect(true)
+        });
+    }
+    
     useEffect(() => {
         axios.get(backendURL + "/api/journals/all/" + id)
         .then(response => {
@@ -21,22 +32,17 @@ const JournalView = (props) => {
                         <p>{i.date.substring(0,10)}</p>
                         <div className="container">
                             <button type="button" className="btn bt-primary"><Link to={"/journalEdit/"+ i._id}>Edit</Link></button>
+                            <button type="submit" className="btn btn-danger" value={i._id} onClick={handleDelete}>Delete</button>
                         </div>
                         
                     </div>
                 )
             }))
         })
-        // return index
-    }, [id, backendURL])
+        
+    }, [])
 
-    // const deleteExercise = (id) => {
-    //     axios.delete(backendURL + "/api/journals/" + id)
-    //     .then(res => {console.log(res.data)});
-    //     setJournalArray(
-    //         journal.filter(el => el._id !== id)
-    //     )
-    // }
+    if (redirect) return <Redirect to="/details" />
 
     return (
         <div>
