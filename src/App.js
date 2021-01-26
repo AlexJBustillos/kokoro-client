@@ -16,7 +16,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import About from './components/About';
 import Journal from'./components/Journal';
-
+import userEdit from './components/userEdit';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -70,6 +70,7 @@ function App() {
           <Route path='/journal' component={Journal}/>
           <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
           <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
+          <PrivateRoute path="/Edit" component={userEdit} user={currentUser}/>
           <Route exact path="/" component={ Welcome }/>
         </Switch>
       </div>
