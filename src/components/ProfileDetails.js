@@ -26,10 +26,14 @@ const ProfileDetails = (props) => {
     return (
         
         <div className="text-center">
+            <div className="imageHolder">
+                <img className="profile-img" src={props.user.avatar} alt={props.user.name} />
+            </div>
             <h1>{props.user.name}</h1>
             {profile}
             <div>
                 <Link to="/journal">Journal</Link>
+                <Link to="/edit">User Edit</Link>
             </div>
         </div>
         
