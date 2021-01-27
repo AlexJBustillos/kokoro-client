@@ -4,7 +4,12 @@ html {
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
-  background-color: goldenrod;
+  background: rgb(18, 54, 53);
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 0;
+  margin-right: 0;
+  color: rgb(252, 114, 2);
 }
 .footer {
   position: absolute;
@@ -12,14 +17,139 @@ body {
   width: 100%;
   height: 60px; /* Set the fixed height of the footer here */
   line-height: 60px; /* Vertically center the text there */
+  font-family: 'Poppins', sans-serif;
+  color: rgb(252, 147, 5);
+}
+
+.nav-link {
+  border-radius: 10px;
+}
+
+.navbar-brand {
+  border-radius: 10px;
+  padding:5px;
 }
 
 .container {
   padding: 2rem 0rem;
 }
 
+.login-container {
+  display: block;
+	position: relative;
+	z-index: 0;
+	margin: 4rem auto 0;
+  padding: 5rem 4rem 0 4rem;
+	width: 100%;
+	max-width: 525px;
+	min-height: 680px;
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/283591/login-background.jpg);
+	box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
+}
+.login-container:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: radial-gradient(ellipse at left bottom, rgba(22, 24, 47, 1) 0%,rgba(38, 20, 72, .9) 59%, rgba(17, 27, 75, .9) 100%);
+	box-shadow: 0 -20px 150px -20px rgba(0, 0, 0, 0.5);
+}
+
+.form-login {
+	position: relative;
+	z-index: 1;
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.login__label {
+	display: block;
+  padding-left: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+	text-transform: uppercase;
+	font-size: .75rem;
+	margin-bottom: 1rem;
+}
+
+.login__input {
+	color: white;
+	font-size: 1.15rem;
+	width: 100%;
+	padding: .5rem 1rem;
+	border: 2px solid transparent;
+	outline: none;
+	border-radius: 1.5rem;
+	background-color: rgba(255, 255, 255, 0.25);
+	letter-spacing: 1px;
+}
+
+.login__input:hover,
+.login__input:focus{
+	color: white;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	background-color: transparent;
+}
+.login__input + .login__label {
+	margin-top: 1.5rem;
+}
+
+.login__submit {
+	color: #ffffff;
+	font-size: 1rem;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-top: 1rem;
+	padding: .75rem;
+	border-radius: 2rem;
+	display: block;
+	width: 100%;
+	background-color: rgba(17, 97, 237, .75);
+	border: none;
+	cursor: pointer;
+}
+
+.login__submit:hover {
+	background-color: rgba(17, 97, 237, 1);
+}
+
+.login__item.active {
+	color: #ffffff;
+	transition: .15s all ease;
+}
+
+.login__item:after,
+.login__item.active:after{
+	background-color: rgb(17, 97, 237);
+	height: 2px;
+	right: 0;
+	bottom: 2px;
+	border-radius: 0;
+	transition: .20s all ease;
+}
+
+* {
+	box-sizing: border-box;
+	transition: .25s all ease;
+}
+
 h4 {
   margin: 2rem 0rem;
+  text-transform: uppercase;
+}
+
+
+h1, h2 {
+  font-family: 'Potta One', cursive;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
 }
 
 .panel {
@@ -37,3 +167,77 @@ h4 {
 .journal{
   background-color: black;
 }
+
+.about-div-parent {
+  border: rgb(11, 23, 28) 1px solid;
+  border-radius: 25px;
+  width: 500px;
+  height: 250px;
+  /* display: inline-block; */
+  margin: 5px;
+}
+
+.about-title {
+  text-align: center;
+}
+
+.about-text {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+}
+
+.welcome-text {
+  text-align: center;
+}
+
+.title1{
+  margin-top: -10px;
+  font-size: 100px;
+}
+
+.front-desc {
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(254, 169, 47);
+  border-radius: 10px;
+  padding:5px 30px 5px 30px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background-color: rgb(254, 169, 47);
+  color: rgb(11, 23, 28);
+}
+
+a {
+  color: rgb(254, 169, 47);
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+a:hover {
+  background-color: rgb(254, 169, 47);
+  color: rgb(11, 23, 28);
+}
+
+.profile-image {
+  margin-top: 20px;
+  width:200px;
+  height: 300px;
+  /* width: 400px; */
+  border-radius: 10px;
+}
+/* .imageHolder {
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
+} */
+/* #main {
+  height: 100vh;
+  text-align: center;
+} */

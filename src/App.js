@@ -30,7 +30,14 @@ function App() {
   // Set state values here
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-  
+  // const [color, setColor] = useState('#F7EA90')
+  const colorObject = {
+    yellow: '#F7EA90',
+    red: '#C78285', 
+    orange: '#EFC58A', 
+    green: '#B1C093', 
+    blue: '#96BAC8', 
+    purple: '#A395B5'}
 
   useEffect(() => {
     let token;
@@ -58,13 +65,13 @@ function App() {
       setIsAuthenticated(false)
     }
   }
-
+  
   return (
-    <div className="App">
+    <div className="App" id="main">
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} user={currentUser}/>
-      <div className="container mt-5">
+      <div>
         <Switch>
-          <Route path='/signup' component={Signup} />
+          <Route path='/signup' component={Signup} colorObject={colorObject}/>
           <Route 
             path='/login' 
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />

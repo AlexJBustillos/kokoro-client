@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { Link, Redirect } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Journal = (props) => {
     const { id } = props.user
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState(Date.now())
     const [redirect, setRedirect] = useState(false)
 
     const handleTitle = (e) => {
@@ -27,15 +27,10 @@ const Journal = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const journalData = { title, text, date };
-        // axios.get(backendURL + "/api/journals/" + props.match.params.id)
-        // .then(response => {
-        //     console.log(response);
-        // })
         axios.post(backendURL + "/api/journals/" + id, journalData)
         .then(response => {
             console.log(response);
-
-            setRedirect(true);
+             setRedirect(true);
         })
         .catch(error => {
             console.log(error);
@@ -47,16 +42,18 @@ const Journal = (props) => {
             <div className="container text-center">
                <h1>Journal</h1>
                <div className="form-group">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="form-login">
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" value={title} onChange={handleTitle} className="form-control"/>
+                    <input type="text" name="title" value={title} onChange={handleTitle} className="login__input"/>
                     <div>
                         <label htmlFor="content" className="float-center">Content</label>
-                        <textarea className="form-control" name="text" value={text} onChange={handleText} rows="4" cols="50"></textarea>
+                        <textarea className="login__input" name="text" value={text} onChange={handleText} rows="4" cols="50"></textarea>
 
                     </div>
                     <div>
-                        <DatePicker 
+                        <DatePicker
+                            placeholderText="date"
+                            className="login__input text-center" 
                             selected={date}
                             onChange={handleDate}
                         />

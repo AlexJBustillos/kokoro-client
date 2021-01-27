@@ -13,11 +13,11 @@ const ProfileDetails = (props) => {
             setProfile( field.map((i, idx) => {
                 return (
                     <div key={idx}>
-                        <h2>Status: {i.status}</h2>
-                        <h3>Meditation: {i.meditation}</h3>
-                        <h3>Experience: {i.experience}</h3>
-                        <p>Bio: {i.bio}</p>
-                        <button className="btn bt-primary"><Link to="/profile">Edit</Link></button>
+                        <p>STATUS: {i.status}</p>
+                        <p>MEDITATION: {i.meditation}</p>
+                        <p>EXPERIENCE: {i.experience}</p>
+                        <p>BIO: {i.bio}</p>
+                        <button className="btn"><Link to="/profile">Edit</Link></button>
                     </div>
                 )
             }))
@@ -26,14 +26,13 @@ const ProfileDetails = (props) => {
     return (
         
         <div className="text-center">
-            <div className="imageHolder">
+            <div>
                 <img className="profile-img" src={props.user.avatar} alt={props.user.name} />
             </div>
             <h1>{props.user.name}</h1>
             {profile}
             <div>
-                <Link to="/journal">Journal</Link>
-                <Link to="/edit">User Edit</Link>
+                <Link to="/journal">Journal Entry</Link> | <Link to="/edit">Edit User data</Link>
             </div>
         </div>
         
