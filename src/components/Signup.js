@@ -54,14 +54,14 @@ const Signup = () => {
             .then(response => {
                 const id = response.data._id
                 const profileData = { id, status, meditation, experience, bio }
-                axios.post(backendURL + "/api/profiles/" + id, profileData)
-                .then(response => {
-                    console.log(response);
+                // axios.post(backendURL + "/api/profiles/" + id, profileData)
+                // .then(response => {
+                //     console.log(response);
                     
-                })
-                .catch(error => {
-                    console.log(error);
-                })
+                // })
+                // .catch(error => {
+                //     console.log(error);
+                // })
                 setRedirect(true);
             })
             .catch(error => {
