@@ -93,7 +93,7 @@ const Signup = () => {
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} className="form-control" />
                         </div>
-                        <h2>Create Profile</h2>
+                        {/* <h2>Create Profile</h2>
                         <div className="form-group">
                         <label htmlFor="status">Status: Begginer - Intermediate - Expert</label>
                         <input 
@@ -133,7 +133,7 @@ const Signup = () => {
                                 onChange={handleBio}
                                 className="form-control"
                             />
-                        </div>
+                        </div> */}
                         <button type="submit" className="btn bt-primary float-right">Submit</button>
                     </form>
                 </div>
