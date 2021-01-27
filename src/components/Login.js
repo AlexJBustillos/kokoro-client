@@ -45,16 +45,16 @@ const Login = (props) => {
     return (
         <div className="row mt-4">
             <div className="col-md-7 offset-md-3">
-                <div className="card card-body">
-                    <h2 className="py-2">Login</h2>
-                    <form onSubmit={handleSubmit}>
+                <h2 className="text-center">Login</h2>
+                <div className="login-container">
+                    <form onSubmit={handleSubmit} className="form-login">
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" />
+                            <input type="email" name="email" value={email} onChange={handleEmail} className="login__input" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" name="password" value={password} onChange={handlePassword} className="form-control" />
+                            <input type="password" name="password" value={password} onChange={handlePassword} className="login__input" />
                         </div>
                         <button type="submit" className="btn bt-primary float-right">Submit</button>
                     </form>

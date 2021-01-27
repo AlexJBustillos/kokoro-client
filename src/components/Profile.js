@@ -6,7 +6,6 @@ import { Redirect } from 'react-router-dom';
 
 
 const Profile = (props) => {
-    console.log(props);
     const backendUrl = process.env.REACT_APP_SERVER_URL;
     const { id, name, email } = props.user
     const [status, setStatus] = useState('');
@@ -42,7 +41,7 @@ const Profile = (props) => {
     }
     if (redirect) return <Redirect to='/details' />
     const userData = props.user ? 
-    (<div>
+    (<div className="text-center">
         <h1>Edit Your Profile Below</h1>
     </div>) : <h4>Loading...</h4>
 
@@ -58,52 +57,47 @@ const Profile = (props) => {
         <div>
             { props.user ? userData : errorDiv() }
             <div>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="status">Status: Begginer - Intermediate - Expert</label>
+                <form onSubmit={handleSubmit} className="form-login">
+                    <div>
+                        <label htmlFor="status">Status: Beginner - Intermediate - Expert</label>
                         <input 
                             type="text" 
                             name="status" 
                             value={status}
                             onChange={handleStatus}
-                            className="form-control"
+                            className="login__input"
                         />
-                    </div>
-                    <div className="form-group">
                         <label htmlFor="meditation">Types of Meditation interested in</label>
                         <input 
                             type="text" 
                             name="meditation"
                             value={meditation}
                             onChange={handleMeditation}
-                            className="form-control"
+                            className="login__input"
                         />
-                    </div>
-                    <div className="form-group">
                         <label htmlFor="experience">Experience with Meditation</label>
                         <input 
                             type="text"
                             name="experience"
                             value={experience}
                             onChange={handleExperience}
-                            className="form-control"
+                            className="login__input"
                         />
-                    </div>
-                    <div className="form-group">
                         <label htmlFor="bio">Tell us a bit about yourself</label>
                         <input 
                             type="text"
                             name="bio"
                             value={bio}
                             onChange={handleBio}
-                            className="form-control"
+                            className="login__input"
                         />
                     </div>
                     <button type="submit" className="btn bt-primary float-right">Submit</button>
                 </form>
-
             </div>
-            <Link to="/journal">Journal</Link>
+            <div className="text-center">
+                <Link to="/journal">Add a journal entry</Link>
+            </div>
 
         </div>
     );
