@@ -50,7 +50,7 @@ const Signup = () => {
         if (password === confirmPassword) {
             const newUser = { name, email, password };
 
-            axios.post(backendURL + `/api/users/register`, newUser)
+            axios.post(backendURL + "/api/users/register", newUser)
             .then(response => {
                 const id = response.data._id
                 const profileData = { id, status, meditation, experience, bio }
