@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+Everyone has days where they need to unwind and/or relax and thats why we've created kokoro for because it can be a baseline guide for everyone who wants to start meditation as well as be a great way for for people who have been meditating to keep track of their progress while offering helpful pointers on the different forms of meditation and the best ways to do them 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#prepearations
 
-## Available Scripts
 
-In the project directory, you can run:
+### Follow these steps to get Kokoro working on your computer locally
+0. Make a folder on your dektop or location you prefer.
+1. Go to [Frontend Repo](https://github.com/AlexJBustillos/kokoro-client).
+2. `Fork` page.
+3. `Clone` code.
+4. Open iTerm2 .
+5. Type - `git clone https://github.com/AlexJBustillos/kokoro-client` into iTerm2.
+6. Follow the same steps for [Backend Repo](https://github.com/AlexJBustillos/kokoro-server).
+7. Using your terminal, navigate to you main app folder and type `npm install`. This will download all the node_modules you need to run. This will have to be done for both repo files.
+8. Next using the terminal open the front end app using `code .` in the terminal. Create a file in the main directory called `.env` inside you will type `REACT_APP_SERVER_URL=http://localhost:8000`.
+9. Next using the terminal open the backend app using `code .` in the terminal. Create a file in the main directory called `.env` inside you will type `JWT_SECRET=“kokoroproject4”"` &
+`MONGO_URI=mongodb://127.0.0.1:27017/Kokoro`.
+10. Finally, open two windows in your terminal and open both frontend and backend and type `npm start` to start the site.
 
-### `npm start`
+### Challenges
+majority of the challenges with this project was with avoiding merge conflicts and setting up the routes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Peak at my Code
+heres a peek at the welcome page code 
+```js
+const Welcome = () => {
+    return (
+        <div>
+            <h1>Welcome to Kokoro your personal meditation tracker</h1>
+            <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="/pictures/meditations.png" className="d-block w-100" alt="cannot show"/>
+    </div>
+    <div className="carousel-item">
+      <img src="/pictures/hill.png" className="d-block w-100" alt="cannot show"/>
+    </div>
+    <div className="carousel-item">
+      <img src="/pictures/sun" className="d-block w-100" alt="cannot show"/>
+    </div>
+  </div>
+</div>
