@@ -43,7 +43,8 @@ body {
 	width: 100%;
 	max-width: 525px;
 	min-height: 680px;
-	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/283591/login-background.jpg);
+  background-image: url(https://i.imgur.com/pZYHIce.jpg);
+  background-position: center;
 	box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
 }
 .login-container:after {
@@ -132,10 +133,10 @@ body {
 	transition: .20s all ease;
 }
 
-* {
+/* * {
 	box-sizing: border-box;
 	transition: .25s all ease;
-}
+} */
 
 h4 {
   margin: 2rem 0rem;
@@ -151,6 +152,7 @@ h1, h2 {
 p {
   font-family: 'Poppins', sans-serif;
 }
+
 
 .panel {
   border-radius: 4px;
@@ -168,23 +170,33 @@ p {
   background-color: black;
 }
 
-.about-div-parent {
+.about-div {
   border: rgb(11, 23, 28) 1px solid;
   border-radius: 25px;
   width: 500px;
   height: 250px;
-  /* display: inline-block; */
+  display: inline-block;
   margin: 5px;
+}
+
+.about-div-parent {
+  display: block;
 }
 
 .about-title {
   text-align: center;
+  color: rgb(254, 169, 47);;
 }
 
 .about-text {
   padding-right: 10px;
   padding-left: 10px;
   padding-bottom: 15px;
+}
+.about-image {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 75px
 }
 
 .welcome-text {
@@ -194,6 +206,11 @@ p {
 .title1{
   margin-top: -10px;
   font-size: 100px;
+}
+
+.title {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .front-desc {
@@ -231,6 +248,23 @@ a:hover {
   height: 300px;
   /* width: 400px; */
   border-radius: 10px;
+}
+
+.not-desc {
+  position: absolute;
+  margin-top: 250px;
+  margin-left: 5%;
+  width: 900px;
+  font-size: 100px;
+  color: rgb(252, 114, 2);
+  z-index: 1;
+  font-family: 'Potta One', cursive;
+  text-transform: uppercase;
+}
+.error-image {
+  width: 100%;
+  margin: auto;
+  display: block;
 }
 /* .imageHolder {
   height: 300px;

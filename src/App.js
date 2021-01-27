@@ -18,6 +18,7 @@ import Journal from'./components/Journal';
 import UserEdit from './components/UserEdit';
 import JournalView from './components/JournalView';
 import JournalEdit from './components/JournalEdit';
+import NotFoundPage from './components/NotFoundPage';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -83,6 +84,7 @@ function App() {
           <PrivateRoute path="/details" component={ ProfileDetails } user={currentUser}/>
           <PrivateRoute path="/Edit" component={UserEdit} user={currentUser} handleLogout={handleLogout}/>
           <Route exact path="/" component={ Welcome }/>
+          <Route path="*" component={NotFoundPage} />
         </Switch>
       </div>
       <Footer />
